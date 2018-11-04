@@ -1,0 +1,2 @@
+Namespace:  {{ .Release.Namespace }} 
+Chart Name: {{ .Chart.Name }}

@@ -8,9 +8,12 @@ replicaCount: 1
 influxdb:
   ## influxdb image version
   ## ref: https://hub.docker.com/r/library/influxdb/tags/
+  ## ref: https://quay.io/repository/influxdb/influxdb?tag=latest&tab=tags
   image:
-    repo: "influxdb"
-    tag: "1.6-alpine"
+    repository: "quay.io/influxdb/influxdb"
+    tag: "nightly-alpine"
+    # repo: "influxdb"
+    # tag: "1.6.4-alpine"
     pullPolicy: IfNotPresent
   
   ## Specify a service type
@@ -78,7 +81,7 @@ influxdb:
       ## User password
       ## single quotes must be escaped (\')
       ## Default: (Randomly generated 10 characters of AlphaNum)
-      # password:
+      password: 1234
   
       ## User privileges
       ## Default: "WITH ALL PRIVILEGES"
@@ -98,7 +101,7 @@ influxdb:
     enabled: false
     tls: false
     # secretName: my-tls-cert # only needed if tls above is true
-    hostname: influxdb.foobar.com
+    hostname: tick.influxdb.com
     annotations:
       # kubernetes.io/ingress.class: "nginx"
       # kubernetes.io/tls-acme: "true"
@@ -226,7 +229,7 @@ influxdb:
       batch_timeout: 1s
       log_point_errors: true
     udp:
-      enabled: false
+      enabled: true
       bind_address: 8089
       database: udp
       retention_policy: autogen
@@ -242,13 +245,16 @@ influxdb:
   
 ############################################################################################
 
-## Chronograf
+## Chronograf 
 chronograf:
   ## Image Settings
-  ##
+  ## ref: https://quay.io/repository/influxdb/chronograf?tab=tags
+  ## ref: https://hub.docker.com/r/library/chronograf/tags/
   image:
-    repository: "docker.io/chronograf"
-    tag: "1.2-alpine"
+    repository: "quay.io/influxdb/chronograf"
+    tag: "nightly"
+    # repository: "docker.io/chronograf"
+    # tag: "1.6.2-alpine"
     pullPolicy: "Always"
 
   ## Specify a service type
@@ -256,8 +262,8 @@ chronograf:
   ## ref: http://kubernetes.io/docs/user-guide/services/
   ##
   service:
-    replicas: 3
-    type: ClusterIP
+    replicas: 1
+    type: LoadBalancer
   ## Persist data to a persistent volume
   ##
   persistence:
@@ -289,9 +295,9 @@ chronograf:
   ## OPTIONALLY you can set .Values.ingress.secretName to set which secret to use
   ##
   ingress:
-    enabled: false
+    enabled: true
     tls: false
-    hostname: chronograf.foobar.com
+    hostname: tick.chronograf.com
     annotations:
       # kubernetes.io/ingress.class: "nginx"
       # secretName: my-tls-cert
@@ -315,7 +321,7 @@ chronograf:
     enabled: false
     client_id: CHANGE_ME
     client_secret: CHANGE_ME
-    # eg. http://chronograf.foobar.com
+    # eg. http://tick.chronograf.com
     public_url: ""
     # This is a comma separated list of Google Apps domains (OPTIONAL)
     domains: ""
@@ -399,7 +405,7 @@ kapacitor:
   ## ref: https://hub.docker.com/r/library/telegraf/tags/
   image:
     repo: "telegraf"
-    tag: "1.5-alpine"
+    tag: "1.8.3-alpine"
     pullPolicy: IfNotPresent
   ## Configure the telegraf daemonset here.
   ## Resource limits and outputs can be set separately

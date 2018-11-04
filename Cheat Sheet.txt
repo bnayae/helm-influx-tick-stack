@@ -20,9 +20,12 @@ helm install --dry-run --debug ./influx-tick-stack
 helm install --dry-run --debug ./influx-tick-stack --set service.internalPort=8080
 
 # first deploy (override the node-type)
-helm install --name tick-test ./influx-tick-stack --set service.type=NodePort
+helm install --name influx ./influx-tick-stack --set service.type=NodePort
+helm install ./influx-tick-stack --name influx --namespace tick
 
-# get status helm status tick-test
+# get status helm status influx
+helm list
+helm status ./influx-tick-stack
 
 # get pods
 kubectl get pods
@@ -31,7 +34,7 @@ kubectl get pods
 kubectl get services
 
 # alternative (run the command from the notes.txt)
-kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services tick-test-influx-tick-stack
+kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services influx-influx-tick-stack
 
 # when deployed on remote cluster
 kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}"
@@ -40,21 +43,24 @@ kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0
 http://localhost:{port}/
 
 # describe the service
-kubectl describe services tick-test-influx-tick-stack
+kubectl describe services influx-influx-tick-stack
+
+#pack
+helm package -u .\influx-tick-stack\
 
 # upgrade
-helm upgrade tick-test .\influx-tick-stack\
+helm upgrade influx .\influx-tick-stack\
 
 # view history
-helm history tick-test
+helm history influx
 
 # rollback
-helm rollback tick-test 1
+helm rollback influx 1
 
 # delete deployment
-helm delete tick-test 
+helm delete influx 
 # delete permanently   
-helm delete tick-test --purge 
+helm delete influx --purge 
 
 helm lint ./influx-tick-stack
 
@@ -67,13 +73,13 @@ https://hub.kubeapps.com/charts
 helm repo update
 
 # pack
-helm package ./influx-tick-stack
+helm package -u ./influx-tick-stack
 
 # install pack
-helm install --name tick-test influx-tick-stack-0.1.2.tgz --set service.type=NodePort
+helm install --name influx influx-tick-stack-0.1.2.tgz --set service.type=NodePort
 
 # upgrade pack
-helm upgrade tick-test influx-tick-stack-0.1.2.tgz
+helm upgrade influx influx-tick-stack-0.1.2.tgz
 
 # pack server
 helm serve
@@ -86,3 +92,10 @@ kubectl --namespace kube-system get pods | grep tiller
 
 ## Kubeapps (Your Application Dashboard for Kubernetes)
 https://github.com/kubeapps/kubeapps/blob/master/docs/user/getting-started.md
+
+## Quay
+https://quay.io/repository/influxdb/chronograf?tab=tags
+https://quay.io/repository/influxdb/influxdb?tag=latest&tab=tags
+
+## GitHub
+https://github.com/influxdata/tick-charts
