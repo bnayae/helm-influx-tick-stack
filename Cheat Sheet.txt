@@ -74,9 +74,14 @@ helm repo update
 
 # pack
 helm package -u ./influx-tick-stack
+helm package -u -d .\influx-tick-stack\packages --save ./influx-tick-stack
 
 # install pack
-helm install --name influx influx-tick-stack-0.1.2.tgz --set service.type=NodePort
+helm install --name influx --dry-run .\influx-tick-stack\packages\influx-tick-stack-0.1.2.tgz --namespace tick
+helm install --name influx .\influx-tick-stack\packages\influx-tick-stack-0.1.2.tgz --namespace tick
+helm install --name influx --dry-run .\influx-tick-stack  --namespace tick
+helm install --name influx .\influx-tick-stack  --namespace tick
+
 
 # upgrade pack
 helm upgrade influx influx-tick-stack-0.1.2.tgz

@@ -1,7 +1,7 @@
 dependencies:
 - name: influxdb
   repository: https://kubernetes-charts.storage.googleapis.com
-  version: 0.11.0
+  version: 0.12.0
 - name: kapacitor
   repository: https://kubernetes-charts.storage.googleapis.com
   version: 1.1.0
@@ -11,5 +11,5 @@ dependencies:
 - name: telegraf
   repository: https://kubernetes-charts.storage.googleapis.com
   version: 0.3.3
-digest: sha256:06e2b58219759f31a95e9d70eebeb23c3eb44fec71403bb6f1482ba605f254bb
-generated: 2018-10-24T13:30:22.36232+03:00
+digest: sha256:f5f52fceef0465d091f8116677933455794ca7a5bdb6a89b7cbd578a91c137f9
+generated: 2018-11-09T07:09:49.5271445+02:00

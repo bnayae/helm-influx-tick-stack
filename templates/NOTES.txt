@@ -1,2 +1,17 @@
-Namespace:  {{ .Release.Namespace }} 
-Chart Name: {{ .Chart.Name }}
+FullName       {{ template "fullname" . }}
+Name:          {{ .Release.Name }}
+Namespace:     {{ .Release.Namespace }} 
+Chart Name:    {{ .Chart.Name }}
+Chart Version: {{ .Chart.Version }}
+App Version:   {{ .Chart.AppVersion }}
+Host Name:     $HOSTNAME
+
+Helm: https://github.com/kubernetes/helm
+Charts: https://github.com/kubernetes/charts
+InfluxData: https://influxdata.com
+            https://github.com/influxdata/influxdb
+            https://influxdata.com/time-series-platform
+
+This chart is aggregation of:
+    stable/influxdb or quay.io/influxdb/influxdb (for nightly version)
+    
