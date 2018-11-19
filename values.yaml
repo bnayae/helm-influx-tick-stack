@@ -12,11 +12,11 @@ influxdb:
   image:
     repo: "quay.io/influxdb/influxdb"
     #repository: "quay.io/influxdb/influxdb"
-    tag: "nightly-alpine"
-    pullPolicy: Always
-    # repo: "influxdb"
-    # tag: "1.6.4-alpine"
-    # pullPolicy: IfNotPresent
+    # tag: "nightly-alpine"
+    # pullPolicy: Always
+    repo: "influxdb"
+    tag: "1.7.1-alpine"
+    pullPolicy: IfNotPresent
   
   ## Specify a service type
   ## NodePort is default
@@ -153,6 +153,7 @@ influxdb:
     http:
       enabled: true
       bind_address: 8086
+      flux-enabled: true
       auth_enabled: false
       log_enabled: true
       write_tracing: false
@@ -229,11 +230,11 @@ chronograf:
   ## ref: https://hub.docker.com/r/library/chronograf/tags/
   image:
     repository: "quay.io/influxdb/chronograf"
-    tag: "nightly"
-    pullPolicy: "Always"
-    # repository: "docker.io/chronograf"
-    # tag: "1.6.2-alpine"
-    # pullPolicy: "IfNotPresent"
+    # tag: "nightly"
+    # pullPolicy: "Always"
+    repository: "docker.io/chronograf"
+    tag: "1.7.3-alpine"
+    pullPolicy: "IfNotPresent"
 
   ## Specify a service type
   ## ClusterIP is default

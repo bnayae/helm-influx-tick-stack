@@ -1,15 +1,18 @@
 dependencies:
 - name: influxdb
-  repository: https://kubernetes-charts.storage.googleapis.com
-  version: 0.12.0
+  repository: https://raw.githubusercontent.com/bnayae/tick-charts/repo/packages/
+  version: 1.7.1
 - name: kapacitor
-  repository: https://kubernetes-charts.storage.googleapis.com
-  version: 1.1.0
+  repository: https://raw.githubusercontent.com/bnayae/tick-charts/repo/packages/
+  version: 1.5.1
 - name: chronograf
-  repository: https://kubernetes-charts.storage.googleapis.com
-  version: 0.4.5
-- name: telegraf
-  repository: https://kubernetes-charts.storage.googleapis.com
-  version: 0.3.3
-digest: sha256:f5f52fceef0465d091f8116677933455794ca7a5bdb6a89b7cbd578a91c137f9
-generated: 2018-11-09T07:09:49.5271445+02:00
+  repository: https://raw.githubusercontent.com/bnayae/tick-charts/repo/packages/
+  version: 1.7.3
+- name: telegraf-s
+  repository: https://raw.githubusercontent.com/bnayae/tick-charts/repo/packages/
+  version: 1.8.3
+- name: telegraf-ds
+  repository: https://raw.githubusercontent.com/bnayae/tick-charts/repo/packages/
+  version: 1.8.3
+digest: sha256:4fa1d35caa38579070517b7c34f919f1ad5fdfb8aa53d73cba89abba5db16636
+generated: 2018-11-19T08:03:51.3189243+02:00

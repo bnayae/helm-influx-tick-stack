@@ -13,6 +13,9 @@ requirements.yaml
 # helm dependency build .\influx-tick-stack
 helm dep update .\influx-tick-stack\
 
+# Add repo
+helm repo add influx-repo https://raw.githubusercontent.com/bnayae/tick-charts/master/packages/
+
 # dry-run
 helm install --dry-run --debug ./influx-tick-stack
 
@@ -44,9 +47,6 @@ http://localhost:{port}/
 
 # describe the service
 kubectl describe services influx-influx-tick-stack
-
-#pack
-helm package -u .\influx-tick-stack\
 
 # upgrade
 helm upgrade influx .\influx-tick-stack\
@@ -95,7 +95,20 @@ kubectl --namespace kube-system get pods | grep tiller
 
 # Other Topics
 
+## repo
+helm repo list
+
+## Index
+helm repo index .\packages\
+
+## Serve
+helm serve --repo-path ./charts
+
+## Download
+https://portal.influxdata.com/   - downloads
+ 
 ## Kubeapps (Your Application Dashboard for Kubernetes)
+https://hub.kubeapps.com/charts
 https://github.com/kubeapps/kubeapps/blob/master/docs/user/getting-started.md
 
 ## Quay

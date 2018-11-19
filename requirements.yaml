@@ -1,32 +1,57 @@
 dependencies:
 - name: influxdb
-  version: ">=0.11.0"
-#  version: "~0.9.3"
-  repository: "@stable"
+#  version: ">=0.12.1"
+#  repository: "@stable"
+  version: ">=1.7.1"
+  repository: "@influx-repo"
 #  repository: https://kubernetes-charts.storage.googleapis.com/
 #  condition: influxdb.enabled
   tags:
     - influxdb
     - db
 - name: kapacitor
-  version: ">=1.1.0"
-  repository: "@stable"
+#  version: ">=1.1.0"
+#  repository: "@stable"
+  version: ">=1.5.1"
+  repository: "@influx-repo"
 #  condition: kapacitor.enabled
   tags:
     - kapacitor
     - engine
 - name: chronograf
-  version: ">=0.4.5"
-  repository: "@stable"
+#  version: ">=0.4.5"
+#  repository: "@stable"
+  version: ">=1.7.3"
+  repository: "@influx-repo"
 #  condition: chronograf.enabled
   tags:
     - chronograf
     - dashboard
     - admin
-- name: telegraf
-  version: ">=0.3.3"
-  repository: "@stable"
+- name: telegraf-s
+#  version: ">=0.3.3"
+#  repository: "@stable"
+  version: ">=1.8.3"
+  repository: "@influx-repo"
 #  condition: telegraf.enabled
   tags:
     - telegraf
     - collector
+- name: telegraf-ds
+#  version: ">=0.3.3"
+#  repository: "@stable"
+  version: ">=1.8.3"
+  repository: "@influx-repo"
+#  condition: telegraf.enabled
+  tags:
+    - telegraf
+    - collector
+# - name: telegraf
+# #  version: ">=0.3.3"
+# #  repository: "@stable"
+#   version: ">=1.8.3"
+#   repository: "@influx-repo"
+# #  condition: telegraf.enabled
+#   tags:
+#     - telegraf
+#     - collector
