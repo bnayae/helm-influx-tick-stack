@@ -8,11 +8,8 @@ dependencies:
 - name: chronograf
   repository: https://raw.githubusercontent.com/bnayae/tick-charts/repo/packages/
   version: 1.7.3
-- name: telegraf-s
-  repository: https://raw.githubusercontent.com/bnayae/tick-charts/repo/packages/
-  version: 1.8.3
-- name: telegraf-ds
-  repository: https://raw.githubusercontent.com/bnayae/tick-charts/repo/packages/
-  version: 1.8.3
-digest: sha256:4fa1d35caa38579070517b7c34f919f1ad5fdfb8aa53d73cba89abba5db16636
-generated: 2018-11-19T08:03:51.3189243+02:00
+- name: telegraf
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 0.3.3
+digest: sha256:ce0dda3964ff984bfff73c53180971d9aafad78a4ce98d0e8b1ae99e0d6659af
+generated: 2018-11-20T07:01:30.672735+02:00

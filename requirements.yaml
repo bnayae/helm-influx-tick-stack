@@ -28,25 +28,7 @@ dependencies:
     - chronograf
     - dashboard
     - admin
-- name: telegraf-s
-#  version: ">=0.3.3"
-#  repository: "@stable"
-  version: ">=1.8.3"
-  repository: "@influx-repo"
-#  condition: telegraf.enabled
-  tags:
-    - telegraf
-    - collector
-- name: telegraf-ds
-#  version: ">=0.3.3"
-#  repository: "@stable"
-  version: ">=1.8.3"
-  repository: "@influx-repo"
-#  condition: telegraf.enabled
-  tags:
-    - telegraf
-    - collector
-# - name: telegraf
+# - name: telegraf-s
 # #  version: ">=0.3.3"
 # #  repository: "@stable"
 #   version: ">=1.8.3"
@@ -55,3 +37,19 @@ dependencies:
 #   tags:
 #     - telegraf
 #     - collector
+# - name: telegraf-ds
+# #  version: ">=0.3.3"
+# #  repository: "@stable"
+#   version: ">=1.8.3"
+#   repository: "@influx-repo"
+# #  condition: telegraf.enabled
+#   tags:
+#     - telegraf
+#     - collector
+- name: telegraf
+  version: ">=0.3.3"
+  repository: "@stable"
+#  condition: telegraf.enabled
+  tags:
+    - telegraf
+    - collector
