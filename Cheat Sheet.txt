@@ -25,6 +25,7 @@ helm install --dry-run --debug ./influx-tick-stack --set service.internalPort=80
 # first deploy (override the node-type)
 helm install --name influx ./influx-tick-stack --set service.type=NodePort
 helm install ./influx-tick-stack --name influx --namespace tick
+helm install --name influx github-bnayae-helm-influx-tick-stack/influx-tick-stack --namespace tick
 
 # get status helm status influx
 helm list
@@ -85,7 +86,7 @@ helm install --name influx .\influx-tick-stack  --namespace tick
 helm install --name test https://github.com/bnayae/tick-charts/raw/repo/packages/influxdb-1.7.1.tgz
 helm install --name test github-bnayae-helm-influx-tick-stack/influxdb
 
-helm install --name influx influx-tick-repo/influx-tick-stack --namespace tick
+helm install --name influx github-bnayae-helm-influx-tick-stack/influx-tick-stack --namespace tick
 
 
 # upgrade pack
