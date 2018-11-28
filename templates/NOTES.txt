@@ -5,7 +5,6 @@ Service:       {{ .Release.Service }}
 Chart Name:    {{ .Chart.Name }}
 Chart Version: {{ .Chart.Version }}
 App Version:   {{ .Chart.AppVersion }}
-Host Name:     $HOSTNAME
 
 
 
