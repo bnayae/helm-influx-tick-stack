@@ -14,8 +14,7 @@ requirements.yaml
 helm dep update .\influx-tick-stack\
 
 # Add repo
-helm repo add influx-repo https://raw.githubusercontent.com/bnayae/tick-charts/master/packages/
-helm repo add influx-tick-repo https://raw.githubusercontent.com/bnayae/helm-influx-tick-stack/master/packages/
+helm repo add github-bnayae-helm-influx-tick-stack https://raw.githubusercontent.com/bnayae/helm-influx-tick-stack/master/packages/
 
 # dry-run
 helm install --dry-run --debug ./influx-tick-stack
