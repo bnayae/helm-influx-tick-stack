@@ -84,7 +84,7 @@ helm install --name influx --dry-run .\influx-tick-stack  --namespace tick
 helm install --name influx .\influx-tick-stack  --namespace tick
 
 helm install --name test https://github.com/bnayae/tick-charts/raw/repo/packages/influxdb-1.7.1.tgz
-helm install --name test influx-repo/influxdb
+helm install --name test github-bnayae-helm-influx-tick-stack/influxdb
 
 helm install --name influx influx-tick-repo/influx-tick-stack --namespace tick
 

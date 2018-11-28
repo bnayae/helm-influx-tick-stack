@@ -1,0 +1,26 @@
+apiVersion: v1
+entries:
+  influx-tick-stack:
+  - appVersion: 1.7.1
+    created: 2018-11-28T10:34:56.3981449+02:00
+    description: Helm for Influx Tick Stack
+    digest: ed520da28ed6a9f3b3d1c6928f0913acccf6f5edd4e4ad6f199975f4304cbe77
+    home: https://medium.com/@bnayae
+    icon: https://pbs.twimg.com/profile_images/674654746725056514/EHg3ZHtE_bigger.jpg
+    keywords:
+    - influx
+    - influxDb
+    - influxData
+    - tick
+    - kapacitor
+    - telegraf
+    - chronograf
+    - flux
+    maintainers:
+    - name: bnaya eshet
+      url: https://medium.com/@bnayae
+    name: influx-tick-stack
+    urls:
+    - influx-tick-stack-1.7.1.tgz
+    version: 1.7.1
+generated: 2018-11-28T10:34:56.3881762+02:00
