@@ -103,6 +103,7 @@ kubectl --namespace kube-system get pods | grep tiller
 
 ## repo
 helm repo list
+helm repo add github-bnayae-helm-influx-tick-stack https://raw.githubusercontent.com/bnayae/helm-influx-tick-stack/master/packages/
 
 ## Index
 helm repo index .\packages\
